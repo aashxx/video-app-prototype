@@ -9,9 +9,9 @@ const App = () => {
   return (
     <Router>
       <Navbar />
-      <Drive />
-      <Fire />
+      <h5 className='marquee'>This is just a prototype. Hence, the actual application UI and functionalities will differ.</h5>
       <Routes>
+        <Route path='/' element={<><Drive /><Fire /></>} />
         <Route path='/upload' element={<Upload />} />
       </Routes>
     </Router>

@@ -22,6 +22,28 @@
     margin-bottom: 30px;
 }
 
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+    color: rgb(192, 49, 49);
+    text-align: center;
+}
+
+.marquee span {
+    display: inline-block;
+    position: absolute;
+    animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+    from { left: 100%; }
+    to { left: -100%; }
+}
+
+
 @media screen and (max-width: 500px) {
     .video {
         width: 380px;

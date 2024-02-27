@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { storage } from '../lib/firebase';
+import { ref, getDownloadURL } from 'firebase/storage';
 
 const Fire = () => {
 
@@ -8,8 +9,8 @@ const Fire = () => {
     useEffect(() => {
         const getVideoUrl = async () => {
         try {
-            const storageRef = storage.ref('videos/m1.mp4');
-            const url = await storageRef.getDownloadURL();
+            const storageRef = ref(storage, 'videos/m1.mp4');
+            const url = await getDownloadURL(storageRef);
             setVideoUrl(url);
         } catch (error) {
             console.error('Error getting video URL:', error);
@@ -20,8 +21,8 @@ const Fire = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Display Video</h1>
+    <div className='drive'>
+      <h1>Firebase Implementation</h1>
       {videoUrl ? (
         <video className='video' controls>
           <source src={videoUrl} type="video/mp4" />
