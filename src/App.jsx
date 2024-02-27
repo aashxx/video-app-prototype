@@ -1,13 +1,20 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+import Drive from './components/Drive';
+import Fire from './components/Fire';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Upload from './components/Upload';
 
 const App = () => {
   return (
-    <div>
+    <Router>
       <Navbar />
-      <iframe src="https://drive.google.com/file/d/1OUHmSmrUPGUWrxdOlXJjXwOGcycMbbRT/preview" width="640" height="480"></iframe>
-      
-    </div>
+      <Drive />
+      <Fire />
+      <Routes>
+        <Route path='/upload' element={<Upload />} />
+      </Routes>
+    </Router>
   )
 }
 
